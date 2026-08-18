@@ -1,0 +1,53 @@
+---
+description: Visual design, responsiveness, accessibility, and safe-change standards for the workshop site
+alwaysApply: true
+---
+
+# Workshop Visual & UX Standards
+
+## Visual style
+
+- Keep layouts **clean and modern** with **generous whitespace** — prefer breathing room over cramming content.
+- Use the existing design tokens in `src/styles/global.css` (`--bg`, `--surface`, `--accent-clay`, `--accent-slate`, `--accent-sage`, `--text`, `--text-muted`, `--border`).
+- Typography: **Fraunces** for display headings, **DM Sans** for body, **IBM Plex Mono** for labels/meta. Do not introduce new font families without explicit request.
+- Reuse `--radius`, `--radius-organic`, and `--shadow` instead of one-off values.
+
+```css
+/* ✅ GOOD — token-based, consistent */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+/* ❌ BAD — random colors and tight spacing */
+.card {
+  background: #222;
+  padding: 4px;
+  font-family: Arial;
+}
+```
+
+## Responsive design
+
+- Support **desktop, tablet, and mobile**. Use fluid spacing (`clamp()`), flexible grids, and breakpoints already in `src/styles/components.css` (900px, 768px).
+- Test touch targets: buttons and interactive elements ≥ 44px where possible.
+- Avoid horizontal overflow; use `flex-wrap`, stacked layouts, and `max-width: var(--max-width)` for content.
+
+## Preserve functionality
+
+- When modifying visuals or copy, **do not break existing behavior** (nav scroll, Learn more expand/collapse, register form + toast, hero illustration interactions) unless the user explicitly asks to change it.
+- Prefer CSS-only visual changes over refactoring component logic.
+
+## Accessibility
+
+- Maintain **sufficient color contrast** (WCAG AA): light text on dark surfaces, muted text still readable.
+- Use semantic HTML (`header`, `main`, `section`, `nav`, `form`, `label`).
+- Interactive controls need visible focus states, `aria-expanded` on toggles, and `aria-live` for dynamic feedback.
+- Decorative SVGs: `aria-hidden="true"`. Meaningful controls: accessible names and keyboard support.
+- Respect `prefers-reduced-motion: reduce` — disable non-essential animations when set.
+
+## Content & visuals
+
+- Prefer visual elements (illustrations, icons, diagrams) over long text blocks when explaining concepts.
+- Keep copy concise; let layout and visuals carry the story.
