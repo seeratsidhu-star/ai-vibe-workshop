@@ -1,0 +1,256 @@
+.fortune-page {
+  --fc-bg: #fffbeb;
+  --fc-text: #92400e;
+  --fc-text-muted: rgba(146, 64, 14, 0.72);
+  --fc-cookie: #facc15;
+  --fc-cookie-stroke: #ca8a04;
+  --fc-glow: rgba(250, 204, 21, 0.22);
+
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--fc-bg);
+  color: var(--fc-text);
+}
+
+.fortune-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 55% 45% at 50% 42%,
+    var(--fc-glow),
+    transparent 70%
+  );
+}
+
+.fortune-decor-sparkle {
+  position: absolute;
+  color: rgba(146, 64, 14, 0.28);
+  pointer-events: none;
+  animation: fortuneSparkle 3.5s ease-in-out infinite;
+}
+
+.fortune-main {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: clamp(2rem, 6vw, 4rem) clamp(1.5rem, 5vw, 2.5rem);
+  max-width: 420px;
+  width: 100%;
+}
+
+.fortune-cookie-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin-bottom: 1.75rem;
+  transition: transform 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.fortune-cookie-btn:not(:disabled):hover {
+  transform: scale(1.04) rotate(-1deg);
+}
+
+.fortune-cookie-btn:not(:disabled):active {
+  transform: scale(0.97);
+}
+
+.fortune-cookie-btn.is-cracking {
+  animation: fortuneCrack 0.65s ease forwards;
+}
+
+.fortune-cookie-btn:disabled:not(.is-revealed) {
+  cursor: default;
+}
+
+.fortune-cookie-svg {
+  width: clamp(140px, 36vw, 180px);
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 8px 20px rgba(202, 138, 4, 0.22));
+}
+
+.fortune-cookie-svg .cookie-sparkle-a {
+  animation: fortuneSparkle 2.2s ease-in-out infinite;
+}
+
+.fortune-cookie-svg .cookie-sparkle-b {
+  animation: fortuneSparkle 2.2s ease-in-out 0.5s infinite;
+}
+
+.fortune-cookie-svg.is-cracked .cookie-half-left {
+  animation: fortuneSplitLeft 0.5s ease forwards;
+  transform-origin: 100px 60px;
+}
+
+.fortune-cookie-svg.is-cracked .cookie-half-right {
+  animation: fortuneSplitRight 0.5s ease forwards;
+  transform-origin: 100px 60px;
+}
+
+.fortune-cookie-svg.is-cracked .fortune-slip {
+  animation: fortuneSlipReveal 0.5s ease 0.15s both;
+}
+
+.fortune-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--fc-text);
+  margin-bottom: 0.75rem;
+}
+
+.fortune-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(0.9375rem, 2.5vw, 1.0625rem);
+  font-weight: 400;
+  color: var(--fc-text-muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.fortune-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.625rem 1.375rem;
+  border: 1.5px solid var(--fc-text);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--fc-text);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.fortune-pill:hover {
+  background: rgba(146, 64, 14, 0.06);
+  transform: translateY(-1px);
+}
+
+.fortune-pill-static {
+  cursor: default;
+  pointer-events: none;
+}
+
+.fortune-pill-static:hover {
+  background: transparent;
+  transform: none;
+}
+
+.fortune-reveal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  animation: fortuneFadeUp 0.5s ease both;
+}
+
+.fortune-message {
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 3.5vw, 1.375rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--fc-text);
+  max-width: 320px;
+  padding: 0 0.5rem;
+}
+
+@keyframes fortuneSparkle {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.9) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1) rotate(15deg);
+  }
+}
+
+@keyframes fortuneCrack {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.08) rotate(2deg);
+  }
+  60% {
+    transform: scale(0.95) rotate(-1deg);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fortuneSplitLeft {
+  to {
+    transform: translate(-18px, 4px) rotate(-12deg);
+  }
+}
+
+@keyframes fortuneSplitRight {
+  to {
+    transform: translate(18px, 4px) rotate(12deg);
+  }
+}
+
+@keyframes fortuneSlipReveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fortuneFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fortune-decor-sparkle,
+  .fortune-cookie-svg .cookie-sparkle-a,
+  .fortune-cookie-svg .cookie-sparkle-b {
+    animation: none;
+  }
+
+  .fortune-cookie-btn.is-cracking {
+    animation: none;
+  }
+
+  .fortune-cookie-svg.is-cracked .cookie-half-left,
+  .fortune-cookie-svg.is-cracked .cookie-half-right,
+  .fortune-cookie-svg.is-cracked .fortune-slip,
+  .fortune-reveal {
+    animation: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .fortune-decor-sparkle {
+    opacity: 0.7;
+  }
+}
