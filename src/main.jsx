@@ -4,7 +4,7 @@ import { setAssetPath } from "@trimble-oss/moduswebcomponents/components";
 import App from "./App.jsx";
 import "@trimble-oss/moduswebcomponents/modus-wc-styles.css";
 import "./styles/global.css";
-import "./styles/gaussian-splatting.css";
+import "./styles/components.css";
 
 setAssetPath(`${window.location.origin}${import.meta.env.BASE_URL}`);
 defineCustomElements();
