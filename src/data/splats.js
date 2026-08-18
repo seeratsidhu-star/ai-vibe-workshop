@@ -9,17 +9,19 @@ export const splats = [
   },
 ];
 
+const asset = (path) => `${import.meta.env.BASE_URL}${path}`;
+
 export const toolbarGroups = [
   [
     { id: "folder", type: "modus", icon: "folder_open", label: "Open folder" },
     { id: "settings", type: "modus", icon: "settings", label: "Settings" },
-    { id: "layout", type: "asset", src: "/gaussian-splatting/icon-layout.svg", label: "Layout" },
+    { id: "layout", type: "asset", src: asset("gaussian-splatting/icon-layout.svg"), label: "Layout" },
   ],
   [
-    { id: "drop-0", type: "asset", src: "/gaussian-splatting/icon-drop-0.svg", label: "Density 0%" },
-    { id: "drop-50", type: "asset", src: "/gaussian-splatting/icon-drop-50.svg", label: "Density 50%" },
-    { id: "drop-80", type: "asset", src: "/gaussian-splatting/icon-drop-80.svg", label: "Density 80%" },
-    { id: "drop-100", type: "asset", src: "/gaussian-splatting/icon-drop-100.svg", label: "Density 100%" },
+    { id: "drop-0", type: "asset", src: asset("gaussian-splatting/icon-drop-0.svg"), label: "Density 0%" },
+    { id: "drop-50", type: "asset", src: asset("gaussian-splatting/icon-drop-50.svg"), label: "Density 50%" },
+    { id: "drop-80", type: "asset", src: asset("gaussian-splatting/icon-drop-80.svg"), label: "Density 80%" },
+    { id: "drop-100", type: "asset", src: asset("gaussian-splatting/icon-drop-100.svg"), label: "Density 100%" },
   ],
   [
     { id: "crop", type: "modus", icon: "crop", label: "Crop splat" },
