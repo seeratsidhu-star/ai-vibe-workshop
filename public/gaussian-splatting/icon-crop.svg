@@ -1,0 +1,13 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Gaussian splatting - Crop" opacity="0.3">
+<g id="Group 7932">
+<line id="Line 5390" x1="6.78076" y1="2.92188" x2="6.78076" y2="17.1005" stroke="#0E416C" stroke-linecap="round"/>
+<line id="Line 5391" x1="6.90576" y1="16.9756" x2="20.8344" y2="16.9756" stroke="#0E416C" stroke-width="1.25" stroke-linecap="round"/>
+<line id="Line 5392" x1="3.04102" y1="6.24756" x2="6.58739" y2="6.24756" stroke="#0E416C" stroke-linecap="round"/>
+<line id="Line 5395" x1="17.6814" y1="21.0786" x2="17.6814" y2="17.5322" stroke="#0E416C" stroke-linecap="round"/>
+<line id="Line 5393" x1="10.0059" y1="6.24756" x2="12.5" y2="6.24756" stroke="#0E416C" stroke-linecap="round"/>
+<line id="Line 5394" x1="17.6816" y1="14.1216" x2="17.6816" y2="11.6094" stroke="#0E416C" stroke-linecap="round"/>
+</g>
+<path id="Exclude" d="M17.8364 11.1095C17.8364 8.25769 20.1482 5.94588 23 5.94588C20.1482 5.94588 17.8364 3.63407 17.8364 0.78231C17.8364 3.63407 15.5246 5.94588 12.6729 5.94588C15.5246 5.94588 17.8364 8.25769 17.8364 11.1095Z" fill="#0E416C"/>
+</g>
+</svg>
