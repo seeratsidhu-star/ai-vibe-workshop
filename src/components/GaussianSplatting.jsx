@@ -141,7 +141,7 @@ export default function GaussianSplatting() {
     <div className="gs-page">
       <img
         className="gs-scene"
-        src="/gaussian-splatting/sketchup-scene.png"
+        src={`${import.meta.env.BASE_URL}gaussian-splatting/sketchup-scene.png`}
         alt="SketchUp viewport with a Gaussian splat of a living room scene"
       />
 
@@ -175,7 +175,7 @@ export default function GaussianSplatting() {
           <div className="gs-manager__title-group">
             <span className="gs-manager__logo">
               <img
-                src="/gaussian-splatting/icon-splat.svg"
+                src={`${import.meta.env.BASE_URL}gaussian-splatting/icon-splat.svg`}
                 alt=""
                 aria-hidden="true"
               />
@@ -312,7 +312,7 @@ export default function GaussianSplatting() {
                     </ModusWcBadge>
                   </span>
                   <img
-                    src="/gaussian-splatting/layout-promo.png"
+                    src={`${import.meta.env.BASE_URL}gaussian-splatting/layout-promo.png`}
                     alt=""
                     aria-hidden="true"
                   />
